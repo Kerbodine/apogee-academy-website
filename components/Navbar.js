@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "../images/logo.svg";
+import { BiMenu } from "react-icons/bi";
 
 const Navbar = () => {
   return (
@@ -11,18 +12,30 @@ const Navbar = () => {
             Apogee Academy
           </h3>
         </div>
-        <div className="ml-auto flex items-center">
-          <Link href="/">
-            <button className="h-10 rounded-lg hover:text-white text-indigo-600 px-3 border-2 border-indigo-500 hover:bg-indigo-500">
-              Log In
-            </button>
+        <div className="hidden md:flex ml-auto gap-4 font-medium items-center">
+          <Link href="/blog">
+            <p className="hover:underline cursor-pointer decoration-2">Blog</p>
           </Link>
-          <div className="mx-2 h-8 w-0.5 bg-gray-300"></div>
-          <Link href="/">
-            <button className="h-10 rounded-lg text-white px-3 border-2 border-indigo-500 bg-indigo-500">
+          <Link href="/about">
+            <p className="hover:underline cursor-pointer decoration-2">About</p>
+          </Link>
+          <Link href="/contact">
+            <p className="hover:underline cursor-pointer decoration-2">
+              Contact
+            </p>
+          </Link>
+          <div className="w-0.5 h-8 bg-gray-200"></div>
+          <Link href="/login">
+            <p className="hover:underline cursor-pointer decoration-2">Login</p>
+          </Link>
+          <Link href="/signup">
+            <button className="h-10 rounded-lg text-white px-3 bg-indigo-500 hover:bg-indigo-600 active:ring-2 ring-indigo-600 ring-offset-2">
               Sign Up
             </button>
           </Link>
+        </div>
+        <div className="grid md:hidden -mr-2 w-10 h-10 rounded-lg hover:bg-gray-100 place-items-center ml-auto text-black text-2xl">
+          <BiMenu />
         </div>
       </div>
     </div>
