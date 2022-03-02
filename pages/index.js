@@ -1,12 +1,14 @@
+import Image from "next/image";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Devices from "../images/devices.svg";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="max-w-6xl mx-auto p-8 mb-32">
-        <section className="flex flex-col md:flex-row">
+      <div className="max-w-6xl mx-auto p-8 mb-16 overflow-hidden">
+        <section className="flex flex-col-reverse sm:flex-row gap-8">
           <div className="w-full sm:w-2/3 md:w-1/2 flex-none">
             <header className="mb-6 md:mb-12 mt-8 sm:mt-12">
               {/* Beta banner */}
@@ -26,7 +28,7 @@ export default function Home() {
               {/* Title section */}
               <h1 className="text-3xl sm:text-4xl font-semibold mb-4 sm:mb-8">
                 World's First{" "}
-                <span className="underline decoration-indigo-500">
+                <span className="underline decoration-indigo-500 decoration-4">
                   Youth Run
                 </span>{" "}
                 Online Learning Community For{" "}
@@ -43,8 +45,36 @@ export default function Home() {
               Get Started →
             </button>
           </div>
+          <div className="flex-auto grid place-items-center">
+            <Devices className="w-full max-w-[420px] mx-auto sm:min-w-[440px] sm:max-w-0" />
+          </div>
         </section>
       </div>
+      <section className="bg-gray-100 py-8 mb-32">
+        <div className="flex flex-wrap gap-4 lg:gap-8 justify-center max-w-6xl mx-auto">
+          <div className="relative w-56 h-28">
+            <Image
+              src="/images/cyberport-logo.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="relative w-56 h-28">
+            <Image
+              src="/images/SDG-goals.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="relative w-56 h-28">
+            <Image
+              src="/images/unitar-logo.png"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );

@@ -21,7 +21,7 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Enter your email..."
-              className="flex-auto h-10 outline-none px-2 focus:border-indigo-600 rounded-lg border-2 border-gray-200"
+              className="flex-auto min-w-0 h-10 outline-none px-2 focus:border-indigo-600 rounded-lg border-2 border-gray-200"
             />
             <button className="h-10 flex items-center px-4 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 focus:ring-2 ring-indigo-600 ring-offset-2">
               Register
