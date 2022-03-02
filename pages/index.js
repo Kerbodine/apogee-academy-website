@@ -121,11 +121,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-gray-100 py-8 my-16">
+      <section className="bg-gray-100 py-8 my-8">
         <div className="flex flex-wrap gap-4 lg:gap-8 justify-center max-w-6xl mx-auto">
           <div className="relative w-56 h-28">
             <Image
               src="/images/cyberport-logo.png"
+              alt="Cyberport logo"
               layout="fill"
               objectFit="contain"
             />
@@ -133,6 +134,7 @@ export default function Home() {
           <div className="relative w-56 h-28">
             <Image
               src="/images/SDG-goals.png"
+              alt="SDG goals logo"
               layout="fill"
               objectFit="contain"
             />
@@ -140,14 +142,16 @@ export default function Home() {
           <div className="relative w-56 h-28">
             <Image
               src="/images/unitar-logo.png"
+              alt="UNITAR logo"
               layout="fill"
               objectFit="contain"
             />
           </div>
         </div>
       </section>
-      <section className="mx-auto max-w-6xl p-8 flex my-16">
-        <div className="w-full md:w-1/2">
+      {/* Youth Social Entrepreneurs */}
+      <section className="mx-auto max-w-6xl p-8 flex my-8 flex-col-reverse md:flex-row gap-8 md:items-center overflow-hidden">
+        <div className="w-full md:w-1/2 md:py-8">
           <header className="mb-4">
             <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-600">
               Resources created and curated by <br />
@@ -160,17 +164,55 @@ export default function Home() {
               sequi autem distinctio eaque repudiandae voluptate alias porro
               provident officiis ratione.
             </p>
+            <button className="mt-8 text-sm rounded-full bg-indigo-50 text-indigo-700 font-semibold px-3 py-1.5 hover:bg-indigo-100">
+              Learn more →
+            </button>
           </header>
+        </div>
+        <div className="flex justify-center md:relative md:flex-auto h-80">
+          <div className="w-[512px] flex-none h-full md:max-w-none md:absolute left-0">
+            <div className="relative w-full h-full">
+              <div className="absolute w-72 h-56 top-0 left-0 rounded-2xl border-2 border-gray-400 overflow-hidden shadow-md">
+                <div className="relative w-full h-full bg-white">
+                  <Image
+                    src="/images/speaker-1.jpg"
+                    alt="Speaker 1"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className="absolute px-2 py-1 top-2 right-2 text-white font-medium bg-black/75 text-xs rounded-full">
+                    Speaker Name
+                  </div>
+                </div>
+              </div>
+              <div className="absolute w-72 h-56 bottom-0 right-0 rounded-2xl border-2 border-gray-400 overflow-hidden shadow-md">
+                <div className="relative w-full h-full bg-white">
+                  <Image
+                    src="/images/speaker-2.jpg"
+                    alt="Speaker 2"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className="absolute px-2 py-1 bottom-2 left-2 text-white font-medium bg-black/75 text-xs rounded-full">
+                    Speaker Name
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <hr />
+      {/* SDG Goals */}
       <section className="mx-auto max-w-6xl p-8 flex my-8 flex-col md:flex-row gap-8 overflow-hidden md:items-center">
-        <div className="flex -mx-8 justify-center px-8 md:mx-0 md:relative md:flex-auto md:h-64">
-          <div className="sm:w-full max-w-[560px] md:max-w-none md:absolute right-0 w-full grid grid-cols-6 gap-2 min-w-[448px] md:min-w-[512px]">
+        <div className="flex justify-center md:relative md:flex-auto md:h-64">
+          <div className="w-full max-w-[560px] md:max-w-none md:absolute right-0 grid grid-cols-6 gap-2 min-w-[448px] md:min-w-[512px]">
             {goals.map((goal) => (
-              <div className="relative aspect-square w-full h-full rounded-md overflow-hidden hover:ring-2 ring-offset-2 ring-indigo-500 cursor-pointer">
+              <div
+                key={goal.id}
+                className="relative aspect-square w-full h-full rounded-md overflow-hidden"
+              >
                 <Image
-                  key={goal.id}
                   src={goal.src}
                   alt={`Goal ${goal.id}`}
                   layout="fill"
@@ -178,9 +220,17 @@ export default function Home() {
                 />
               </div>
             ))}
+            <div className="relative aspect-square w-full h-full">
+              <Image
+                src="/images/goals/sdg-wheel.png"
+                alt="SDG Wheel"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           </div>
         </div>
-        <div className="w-full md:w-1/2 py-8">
+        <div className="w-full md:w-1/2 md:py-8">
           <header className="mb-4">
             <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-600">
               Gain valuable insights into the <br />
