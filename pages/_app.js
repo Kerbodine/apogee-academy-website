@@ -1,11 +1,26 @@
+import { useRouter } from "next/router";
+import PrivateRoute from "../components/PrivateRoute";
+import PublicRoute from "../components/PublicRoute";
+import { AuthProvider } from "../contexts/AuthContext";
 import "../styles/globals.css";
-import Layout from "../components/Layout";
+
+const noAuthPages = ["/", "/login", "/signup", "/reset-password"];
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <AuthProvider>
+      {noAuthPages.includes(router.pathname) ? (
+        <PublicRoute>
+          <Component {...pageProps} />
+        </PublicRoute>
+      ) : (
+        <PrivateRoute>
+          <Component {...pageProps} />
+        </PrivateRoute>
+      )}
+    </AuthProvider>
   );
 }
 
