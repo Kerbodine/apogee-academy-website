@@ -160,9 +160,11 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              sequi autem distinctio eaque repudiandae voluptate alias porro
-              provident officiis ratione.
+              From up-and-coming SDG world leaders to educators to simply
+              students like you - Apogee Academy is a place for everyone.
+              Resources on our site are meticulously curated by ourselves and
+              contributors alike; establishing a one-and-only digitalized
+              educational experience centered around the SDGs.
             </p>
             <button className="mt-8 rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-100">
               Learn more →
@@ -239,9 +241,10 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              sequi autem distinctio eaque repudiandae voluptate alias porro
-              provident officiis ratione.
+              Sustainable Development Goals are the key to our collective
+              future. Through developing a fuller understanding of such and
+              providing meaningful insights into each of them respectively, you
+              could be the spark that drives the movement of change.
             </p>
           </header>
         </div>
@@ -257,9 +260,10 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              sequi autem distinctio eaque repudiandae voluptate alias porro
-              provident officiis ratione.
+              We, at Apogee Academy, fully believe that collaboration is the key
+              to success; making the world a better place is no less than a team
+              effort. By communicating with like-minded individuals that share
+              the same ideals, working towards these goals will be made easier.
             </p>
           </header>
         </div>
