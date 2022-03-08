@@ -78,26 +78,26 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <section className="max-w-6xl mx-auto p-8 my-16 overflow-hidden">
-        <div className="flex flex-col-reverse sm:flex-row gap-8">
-          <div className="w-full sm:w-2/3 md:w-1/2 flex-none">
-            <header className="mb-6 md:mb-12 mt-8 sm:mt-12">
+      <section className="mx-auto my-16 max-w-6xl overflow-hidden p-8">
+        <div className="flex flex-col-reverse gap-8 sm:flex-row">
+          <div className="w-full flex-none sm:w-2/3 md:w-1/2">
+            <header className="mb-6 mt-8 sm:mt-12 md:mb-12">
               {/* Beta banner */}
-              <div className="hidden sm:inline-flex -ml-1 bg-white ring-2 ring-gray-200 rounded-md text-sm leading-5 mb-8">
-                <span className="p-1 inline-flex gap-2">
-                  <span className="px-1 py-0.5 font-semibold text-white bg-indigo-500 text-xs rounded-md">
+              <div className="-ml-1 mb-8 hidden rounded-md bg-white text-sm leading-5 ring-2 ring-gray-200 sm:inline-flex">
+                <span className="inline-flex gap-2 p-1">
+                  <span className="rounded-md bg-indigo-500 px-1 py-0.5 text-xs font-semibold text-white">
                     NEW
                   </span>
                   <span className="font-medium">
                     Apogee Academy is now in beta!
                   </span>
                 </span>
-                <button className="hover:bg-gray-200 border-l-2 border-gray-200 font-medium px-2">
+                <button className="border-l-2 border-gray-200 px-2 font-medium hover:bg-gray-200">
                   Sign up →
                 </button>
               </div>
               {/* Title section */}
-              <h1 className="text-3xl sm:text-4xl font-semibold mb-4 sm:mb-8">
+              <h1 className="mb-4 text-3xl font-semibold sm:mb-8 sm:text-4xl">
                 World's First{" "}
                 <span className="underline decoration-indigo-500 decoration-4">
                   Youth Run
@@ -105,25 +105,25 @@ export default function Home() {
                 Online Learning Community For{" "}
                 <span className="text-indigo-500">SDG</span> Education
               </h1>
-              <h2 className="sm:text-lg text-gray-600">
+              <h2 className="text-gray-600 sm:text-lg">
                 Join a community of over 1,000 youth leaders and learners from
                 all over the world. Expand your knowledge on sustainable
                 development and learn from the best in the industry.
               </h2>
             </header>
             {/* Call to action button */}
-            <button className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 active:ring-2 ring-indigo-600 ring-offset-2 text-white">
+            <button className="rounded-lg bg-indigo-500 px-4 py-2 text-white ring-indigo-600 ring-offset-2 hover:bg-indigo-600 active:ring-2">
               Get Started →
             </button>
           </div>
-          <div className="flex-auto grid place-items-center">
-            <Devices className="w-full max-w-[420px] mx-auto sm:min-w-[420px] sm:max-w-0" />
+          <div className="grid flex-auto place-items-center">
+            <Devices className="mx-auto w-full max-w-[420px] sm:min-w-[420px] sm:max-w-0" />
           </div>
         </div>
       </section>
-      <section className="bg-gray-100 py-8 my-8">
-        <div className="flex flex-wrap gap-4 lg:gap-8 justify-center max-w-6xl mx-auto">
-          <div className="relative w-56 h-28">
+      <section className="my-8 bg-gray-100 py-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-4 lg:gap-8">
+          <div className="relative h-28 w-56">
             <Image
               src="/images/cyberport-logo.png"
               alt="Cyberport logo"
@@ -131,7 +131,7 @@ export default function Home() {
               objectFit="contain"
             />
           </div>
-          <div className="relative w-56 h-28">
+          <div className="relative h-28 w-56">
             <Image
               src="/images/SDG-goals.png"
               alt="SDG goals logo"
@@ -139,7 +139,7 @@ export default function Home() {
               objectFit="contain"
             />
           </div>
-          <div className="relative w-56 h-28">
+          <div className="relative h-28 w-56">
             <Image
               src="/images/unitar-logo.png"
               alt="UNITAR logo"
@@ -150,12 +150,12 @@ export default function Home() {
         </div>
       </section>
       {/* Youth Social Entrepreneurs */}
-      <section className="mx-auto max-w-6xl p-8 flex my-8 flex-col-reverse md:flex-row gap-8 md:items-center overflow-hidden">
+      <section className="mx-auto my-8 flex max-w-6xl flex-col-reverse gap-8 overflow-hidden p-8 md:flex-row md:items-center">
         <div className="w-full md:w-1/2 md:py-8">
           <header className="mb-4">
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-600">
+            <h2 className="mb-4 text-lg font-semibold text-gray-600 sm:text-xl">
               Resources created and curated by <br />
-              <span className="text-indigo-500 text-2xl sm:text-3xl">
+              <span className="text-2xl text-indigo-500 sm:text-3xl">
                 Youth leaders & social entrepreneurs
               </span>
             </h2>
@@ -164,36 +164,36 @@ export default function Home() {
               sequi autem distinctio eaque repudiandae voluptate alias porro
               provident officiis ratione.
             </p>
-            <button className="mt-8 text-sm rounded-full bg-indigo-50 text-indigo-700 font-semibold px-3 py-1.5 hover:bg-indigo-100">
+            <button className="mt-8 rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-100">
               Learn more →
             </button>
           </header>
         </div>
-        <div className="flex justify-center md:relative md:flex-auto h-80">
-          <div className="w-[512px] flex-none h-full md:max-w-none md:absolute left-0">
-            <div className="relative w-full h-full">
-              <div className="absolute w-72 h-56 top-0 left-0 rounded-2xl border-2 border-gray-400 overflow-hidden shadow-md">
-                <div className="relative w-full h-full bg-white">
+        <div className="flex h-80 justify-center md:relative md:flex-auto">
+          <div className="left-0 h-full w-[512px] flex-none md:absolute md:max-w-none">
+            <div className="relative h-full w-full">
+              <div className="absolute top-0 left-0 h-56 w-72 overflow-hidden rounded-2xl border-2 border-gray-400 shadow-md">
+                <div className="relative h-full w-full bg-white">
                   <Image
                     src="/images/speaker-1.jpg"
                     alt="Speaker 1"
                     layout="fill"
                     objectFit="cover"
                   />
-                  <div className="absolute px-2 py-1 top-2 right-2 text-white font-medium bg-black/75 text-xs rounded-full">
+                  <div className="absolute top-2 right-2 rounded-full bg-black/75 px-2 py-1 text-xs font-medium text-white">
                     Speaker Name
                   </div>
                 </div>
               </div>
-              <div className="absolute w-72 h-56 bottom-0 right-0 rounded-2xl border-2 border-gray-400 overflow-hidden shadow-md">
-                <div className="relative w-full h-full bg-white">
+              <div className="absolute bottom-0 right-0 h-56 w-72 overflow-hidden rounded-2xl border-2 border-gray-400 shadow-md">
+                <div className="relative h-full w-full bg-white">
                   <Image
                     src="/images/speaker-2.jpg"
                     alt="Speaker 2"
                     layout="fill"
                     objectFit="cover"
                   />
-                  <div className="absolute px-2 py-1 bottom-2 left-2 text-white font-medium bg-black/75 text-xs rounded-full">
+                  <div className="absolute bottom-2 left-2 rounded-full bg-black/75 px-2 py-1 text-xs font-medium text-white">
                     Speaker Name
                   </div>
                 </div>
@@ -204,13 +204,13 @@ export default function Home() {
       </section>
       <hr />
       {/* SDG Goals */}
-      <section className="mx-auto max-w-6xl p-8 flex my-8 flex-col md:flex-row gap-8 overflow-hidden md:items-center">
-        <div className="flex justify-center md:relative md:flex-auto md:h-64">
-          <div className="w-full max-w-[560px] md:max-w-none md:absolute right-0 grid grid-cols-6 gap-2 min-w-[448px] md:min-w-[512px]">
+      <section className="mx-auto my-8 flex max-w-6xl flex-col gap-8 overflow-hidden p-8 md:flex-row md:items-center">
+        <div className="flex justify-center md:relative md:h-64 md:flex-auto">
+          <div className="right-0 grid w-full min-w-[448px] max-w-[560px] grid-cols-6 gap-2 md:absolute md:min-w-[512px] md:max-w-none">
             {goals.map((goal) => (
               <div
                 key={goal.id}
-                className="relative aspect-square w-full h-full rounded-md overflow-hidden"
+                className="relative aspect-square h-full w-full overflow-hidden rounded-md"
               >
                 <Image
                   src={goal.src}
@@ -220,7 +220,7 @@ export default function Home() {
                 />
               </div>
             ))}
-            <div className="relative aspect-square w-full h-full">
+            <div className="relative aspect-square h-full w-full">
               <Image
                 src="/images/goals/sdg-wheel.png"
                 alt="SDG Wheel"
@@ -232,9 +232,9 @@ export default function Home() {
         </div>
         <div className="w-full md:w-1/2 md:py-8">
           <header className="mb-4">
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-600">
+            <h2 className="mb-4 text-lg font-semibold text-gray-600 sm:text-xl">
               Gain valuable insights into the <br />
-              <span className="text-indigo-500 text-2xl sm:text-3xl">
+              <span className="text-2xl text-indigo-500 sm:text-3xl">
                 The 17 sustainable development goals
               </span>
             </h2>
@@ -247,13 +247,13 @@ export default function Home() {
         </div>
       </section>
       <hr />
-      <section className="mx-auto max-w-6xl p-8 flex my-16">
+      <section className="mx-auto my-16 flex max-w-6xl p-8">
         <div className="w-full md:w-1/2">
           <header className="mb-4">
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-600">
+            <h2 className="mb-4 text-lg font-semibold text-gray-600 sm:text-xl">
               Learn & share with a community of <br />
-              <span className="text-indigo-500 text-2xl sm:text-3xl">
-                Like minded students
+              <span className="text-2xl text-indigo-500 sm:text-3xl">
+                Like-minded students
               </span>
             </h2>
             <p className="text-gray-600">
