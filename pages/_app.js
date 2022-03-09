@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Layout from "../components/Layout";
 import PrivateRoute from "../components/PrivateRoute";
 import PublicRoute from "../components/PublicRoute";
 import { AuthProvider } from "../contexts/AuthContext";
@@ -20,11 +21,15 @@ function MyApp({ Component, pageProps }) {
     <AuthProvider>
       {noAuthPages.includes(router.pathname) ? (
         <PublicRoute>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </PublicRoute>
       ) : (
         <PrivateRoute>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </PrivateRoute>
       )}
     </AuthProvider>

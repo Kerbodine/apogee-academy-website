@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -77,6 +78,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Home | Apogee Academy</title>
+      </Head>
       <Navbar />
       <section className="mx-auto my-16 max-w-6xl overflow-hidden p-8">
         <div className="flex flex-col-reverse gap-8 sm:flex-row">
