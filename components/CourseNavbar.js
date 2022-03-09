@@ -3,7 +3,7 @@ import Logo from "../images/logo.svg";
 import { BiMenu } from "react-icons/bi";
 import { useState } from "react";
 
-const Navbar = () => {
+const CourseNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -27,15 +27,11 @@ const Navbar = () => {
       href: "/login",
       label: "Login",
     },
-    {
-      href: "/signup",
-      label: "Sign Up",
-    },
   ];
 
   return (
     <>
-      <nav className="sticky top-0 z-10 h-16 w-full border-b-2 border-gray-200 bg-white shadow-lg">
+      <div className="sticky top-0 z-10 h-16 w-full border-b-2 border-gray-200 bg-white shadow-lg">
         <div className="mx-auto flex h-full max-w-6xl items-center px-6">
           <div className="flex h-10 items-center gap-2">
             <Logo className="w-12" />
@@ -44,12 +40,12 @@ const Navbar = () => {
             </h3>
           </div>
           <ul className="ml-auto hidden items-center gap-4 font-medium md:flex">
-            {links.slice(0, -1).map((link) => {
+            {links.map((link) => {
               return (
-                <Link href={link.href} key={link.href}>
-                  <button className="decoration-2 hover:underline">
+                <Link href={link.href}>
+                  <li className="cursor-pointer decoration-2 hover:underline">
                     {link.label}
-                  </button>
+                  </li>
                 </Link>
               );
             })}
@@ -66,20 +62,37 @@ const Navbar = () => {
             <BiMenu />
           </button>
         </div>
-      </nav>
+      </div>
       {/* Mobile Navbar */}
       {isOpen && (
         <div className="sticky top-16 z-10 flex h-16 w-full items-center border-b-2 border-gray-200 bg-gray-100 shadow-lg md:hidden">
           <div className="mx-auto flex items-center gap-3 font-medium">
-            {links.map((link) => {
-              return (
-                <Link href={link.href} key={link.href}>
-                  <button className="decoration-2 hover:underline">
-                    {link.label}
-                  </button>
-                </Link>
-              );
-            })}
+            <Link href="/">
+              <p className="cursor-pointer decoration-2 hover:underline">
+                Home
+              </p>
+            </Link>
+            <Link href="/about">
+              <p className="cursor-pointer decoration-2 hover:underline">
+                About
+              </p>
+            </Link>
+            <Link href="/contact">
+              <p className="cursor-pointer decoration-2 hover:underline">
+                Contact
+              </p>
+            </Link>
+            <div className="h-8 w-0.5 bg-gray-200"></div>
+            <Link href="/login">
+              <p className="cursor-pointer decoration-2 hover:underline">
+                Login
+              </p>
+            </Link>
+            <Link href="/signup">
+              <p className="cursor-pointer decoration-2 hover:underline">
+                Signup
+              </p>
+            </Link>
           </div>
         </div>
       )}
@@ -87,4 +100,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default CourseNavbar;

@@ -6,8 +6,6 @@ export default function Dashboard() {
   const { user, logout } = useAuth();
   const router = useRouter();
 
-  console.log(user);
-
   return (
     <div className="grid h-screen w-screen place-items-center bg-white">
       <div className="rounded-2xl border-gray-200 p-8 xs:border-2">

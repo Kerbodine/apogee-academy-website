@@ -4,7 +4,14 @@ import PublicRoute from "../components/PublicRoute";
 import { AuthProvider } from "../contexts/AuthContext";
 import "../styles/globals.css";
 
-const noAuthPages = ["/", "/login", "/signup", "/reset-password"];
+const noAuthPages = [
+  "/",
+  "/about",
+  "/contact",
+  "/login",
+  "/signup",
+  "/reset-password",
+];
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
