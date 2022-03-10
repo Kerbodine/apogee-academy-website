@@ -15,7 +15,7 @@ export default function Streak() {
         </div>
       </div>
       <div className="flex flex-col justify-center gap-1">
-        <h3 className="text-xl font-semibold leading-5 sm:text-2xl">
+        <h3 className="text-lg font-semibold leading-5 sm:text-xl">
           You're on a {streak} day streak!
         </h3>
         <p className="leading-5 text-gray-700">

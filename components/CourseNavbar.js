@@ -4,6 +4,7 @@ import { BiMenu, BiSearch } from "react-icons/bi";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Image from "next/image";
+import AccountMenu from "./AccountMenu";
 
 const CourseNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,15 +64,7 @@ const CourseNavbar = () => {
               />
             </div>
             {/* Account */}
-            {user.photoURL ? (
-              <div className="relative h-9 w-9 flex-none overflow-hidden rounded-full hover:ring-2 hover:ring-gray-200">
-                <Image src={user.photoURL} alt="pfp" layout="fill" />
-              </div>
-            ) : (
-              <div className="grid h-9 w-9 flex-none place-items-center rounded-full bg-gray-500 text-lg font-medium text-white hover:ring-2 hover:ring-gray-200">
-                {user.displayName[0]}
-              </div>
-            )}
+            <AccountMenu />
           </ul>
           {/* Mobile menu icon */}
           <button
