@@ -69,12 +69,12 @@ const Navbar = () => {
       </nav>
       {/* Mobile Navbar */}
       {isOpen && (
-        <div className="sticky top-16 z-10 flex h-16 w-full items-center border-b-2 border-gray-200 bg-gray-100 shadow-lg md:hidden">
+        <div className="sticky top-16 z-10 flex h-12 w-full items-center border-b-2 border-gray-200 bg-gray-100 shadow-lg md:hidden">
           <div className="mx-auto flex items-center gap-3 font-medium">
             {links.map((link) => {
               return (
                 <Link href={link.href} key={link.href}>
-                  <button className="decoration-2 hover:underline">
+                  <button className="text-sm decoration-2 hover:underline">
                     {link.label}
                   </button>
                 </Link>

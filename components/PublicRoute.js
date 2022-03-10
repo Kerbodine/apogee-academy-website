@@ -8,7 +8,7 @@ export default function PublicRoute({ children }) {
 
   useEffect(() => {
     if (user) {
-      router.push("/courses");
+      router.push("/home");
     }
   }, [router, user]);
 

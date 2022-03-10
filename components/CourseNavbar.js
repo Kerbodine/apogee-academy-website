@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Logo from "../images/logo.svg";
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiSearch } from "react-icons/bi";
 import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import Image from "next/image";
 
 const CourseNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,16 +19,12 @@ const CourseNavbar = () => {
       label: "Home",
     },
     {
-      href: "/about",
-      label: "About",
+      href: "/courses",
+      label: "Courses",
     },
     {
-      href: "/contact",
-      label: "Contact",
-    },
-    {
-      href: "/login",
-      label: "Login",
+      href: "/saved",
+      label: "Saved",
     },
   ];
 
@@ -39,22 +38,42 @@ const CourseNavbar = () => {
               Apogee Academy
             </h3>
           </div>
-          <ul className="ml-auto hidden items-center gap-4 font-medium md:flex">
-            {links.map((link) => {
-              return (
-                <Link href={link.href}>
-                  <li className="cursor-pointer decoration-2 hover:underline">
-                    {link.label}
-                  </li>
-                </Link>
-              );
-            })}
-            <Link href="/signup">
-              <button className="h-10 rounded-lg bg-indigo-500 px-3 text-white ring-indigo-600 ring-offset-2 hover:bg-indigo-600 active:ring-2">
-                Sign Up
-              </button>
-            </Link>
+          {/* Links */}
+          <ul className="hidden flex-auto items-center gap-4 font-medium md:flex">
+            <div className="mx-auto flex gap-4">
+              {links.map((link) => {
+                return (
+                  <Link href={link.href} key={link.href}>
+                    <li className="cursor-pointer decoration-2 hover:underline">
+                      {link.label}
+                    </li>
+                  </Link>
+                );
+              })}
+            </div>
+            {/* Searchbar */}
+            <div className="max-w-36 flex h-9 items-center gap-2 rounded-lg bg-gray-100 px-2 text-gray-700 ring-gray-400 focus-within:ring-2">
+              <span className="text-xl text-gray-400">
+                <BiSearch />
+              </span>
+              <input
+                type="text"
+                placeholder="Search..."
+                className="group bg-transparent placeholder:text-gray-400 focus:outline-none"
+              />
+            </div>
+            {/* Account */}
+            {user.photoURL ? (
+              <div className="relative h-9 w-9 flex-none overflow-hidden rounded-full hover:ring-2 hover:ring-gray-200">
+                <Image src={user.photoURL} alt="pfp" layout="fill" />
+              </div>
+            ) : (
+              <div className="grid h-9 w-9 flex-none place-items-center rounded-full bg-gray-500 text-lg font-medium text-white hover:ring-2 hover:ring-gray-200">
+                {user.displayName[0]}
+              </div>
+            )}
           </ul>
+          {/* Mobile menu icon */}
           <button
             className="-mr-2 ml-auto grid h-10 w-10 place-items-center rounded-lg text-2xl text-black hover:bg-gray-100 md:hidden"
             onClick={toggleMenu}

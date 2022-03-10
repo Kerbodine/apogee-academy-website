@@ -22,7 +22,7 @@ export default function Login() {
     try {
       await signInWithGoogle();
       setLoading(false);
-      router.push("/courses");
+      router.push("/home");
     } catch (err) {
       setLoading(false);
     }
@@ -35,7 +35,7 @@ export default function Login() {
     try {
       await login(email, password);
       setLoading(false);
-      router.push("/courses");
+      router.push("/home");
     } catch (err) {
       setLoading(false);
       switch (err.code) {

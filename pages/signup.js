@@ -24,7 +24,7 @@ export default function Signup() {
     try {
       await signInWithGoogle();
       setLoading(false);
-      router.push("/courses");
+      router.push("/home");
     } catch (err) {
       setLoading(false);
     }
@@ -38,7 +38,7 @@ export default function Signup() {
       await signup(email, password);
       await updateDisplayName(`${firstName} ${lastName}`);
       setLoading(false);
-      router.push("/courses");
+      router.push("/home");
     } catch (err) {
       setLoading(false);
       console.log(err);
