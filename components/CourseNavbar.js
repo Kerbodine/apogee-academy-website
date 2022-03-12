@@ -2,13 +2,10 @@ import Link from "next/link";
 import Logo from "../images/logo.svg";
 import { BiMenu, BiSearch } from "react-icons/bi";
 import { useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import Image from "next/image";
 import AccountMenu from "./AccountMenu";
 
 const CourseNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, logout } = useAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

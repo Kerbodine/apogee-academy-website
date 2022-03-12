@@ -45,8 +45,8 @@ export default function AccountMenu() {
       >
         <Menu.Items className="absolute right-0 mt-7 w-40 origin-top-right divide-y-2 divide-gray-200 rounded-lg border-2 border-gray-200 bg-white shadow-lg focus:outline-none">
           <div className="p-2">
-            {menuItems.map((item) => (
-              <Menu.Item>
+            {menuItems.map((item, index) => (
+              <Menu.Item key={index}>
                 {({ active }) => (
                   <div
                     className={`${
