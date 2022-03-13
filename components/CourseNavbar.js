@@ -172,8 +172,17 @@ export default function CourseNavbar() {
             <div className="border-t-2 border-gray-200 pt-4 pb-3">
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
-                  <div className="relative h-10 w-10 rounded-lg">
-                    <Image src={user.photoURL} alt="pfp" layout="fill" />
+                  <div
+                    className={`${
+                      !user.photoURL &&
+                      "bg-gray-500 text-xl font-medium text-white"
+                    } relative grid h-10 w-10 place-items-center overflow-hidden rounded-lg ring-gray-200 hover:ring-2`}
+                  >
+                    {user.photoURL ? (
+                      <Image src={user.photoURL} alt="pfp" layout="fill" />
+                    ) : (
+                      user.displayName[0]
+                    )}
                   </div>
                 </div>
                 <div className="ml-3 w-full truncate">
