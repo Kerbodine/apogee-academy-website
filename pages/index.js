@@ -3,8 +3,10 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Devices from "../images/devices.svg";
-
-import { goals } from "../config/goals";
+import Speakers from "../components/home/Speakers";
+import Goals from "../components/home/Goals";
+import Learn from "../components/home/Learn";
+import Logos from "../components/home/Logos";
 
 export default function Home() {
   return (
@@ -56,154 +58,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="my-8 bg-gray-100 py-8">
-        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-4 lg:gap-8">
-          <div className="relative h-28 w-56">
-            <Image
-              src="/images/cyberport-logo.png"
-              alt="Cyberport logo"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-          <div className="relative h-28 w-56">
-            <Image
-              src="/images/SDG-goals.png"
-              alt="SDG goals logo"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-          <div className="relative h-28 w-56">
-            <Image
-              src="/images/unitar-logo.png"
-              alt="UNITAR logo"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-        </div>
-      </section>
-      {/* Youth Social Entrepreneurs */}
-      <section className="mx-auto my-8 flex max-w-6xl flex-col-reverse gap-8 overflow-hidden p-8 md:flex-row md:items-center">
-        <div className="w-full md:w-1/2 md:py-8">
-          <header className="mb-4">
-            <h2 className="mb-4 text-lg font-semibold text-gray-600 sm:text-xl">
-              Resources created and curated by <br />
-              <span className="text-2xl text-indigo-500 sm:text-3xl">
-                Youth leaders & social entrepreneurs
-              </span>
-            </h2>
-            <p className="text-gray-600">
-              From up-and-coming SDG world leaders to educators to simply
-              students like you - Apogee Academy is a place for everyone.
-              Resources on our site are meticulously curated by ourselves and
-              contributors alike; establishing a one-and-only digitalized
-              educational experience centered around the SDGs.
-            </p>
-            <button className="mt-8 rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-100">
-              Learn more →
-            </button>
-          </header>
-        </div>
-        <div className="flex h-80 justify-center md:relative md:flex-auto">
-          <div className="left-0 h-full w-[512px] flex-none md:absolute md:max-w-none">
-            <div className="relative h-full w-full">
-              <div className="absolute top-0 left-0 h-56 w-72 overflow-hidden rounded-2xl border-2 border-gray-400 shadow-md">
-                <div className="relative h-full w-full bg-white">
-                  <Image
-                    src="/images/speaker-1.jpg"
-                    alt="Speaker 1"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="absolute top-2 right-2 rounded-full bg-black/75 px-2 py-1 text-xs font-medium text-white">
-                    Speaker Name
-                  </div>
-                </div>
-              </div>
-              <div className="absolute bottom-0 right-0 h-56 w-72 overflow-hidden rounded-2xl border-2 border-gray-400 shadow-md">
-                <div className="relative h-full w-full bg-white">
-                  <Image
-                    src="/images/speaker-2.jpg"
-                    alt="Speaker 2"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className="absolute bottom-2 left-2 rounded-full bg-black/75 px-2 py-1 text-xs font-medium text-white">
-                    Speaker Name
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <hr />
-      {/* SDG Goals */}
-      <section className="mx-auto my-8 flex max-w-6xl flex-col gap-8 overflow-hidden p-8 md:flex-row md:items-center">
-        <div className="flex justify-center md:relative md:h-64 md:flex-auto">
-          <div className="right-0 grid w-full min-w-[448px] max-w-[560px] grid-cols-6 gap-2 md:absolute md:min-w-[512px] md:max-w-none">
-            {goals.map((goal) => (
-              <div
-                key={goal.id}
-                className="relative aspect-square h-full w-full overflow-hidden rounded-md"
-              >
-                <Image
-                  src={goal.src}
-                  alt={`Goal ${goal.id}`}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            ))}
-            <div className="relative aspect-square h-full w-full">
-              <Image
-                src="/images/goals/sdg-wheel.png"
-                alt="SDG Wheel"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 md:py-8">
-          <header className="mb-4">
-            <h2 className="mb-4 text-lg font-semibold text-gray-600 sm:text-xl">
-              Gain valuable insights into the <br />
-              <span className="text-2xl text-indigo-500 sm:text-3xl">
-                The 17 sustainable development goals
-              </span>
-            </h2>
-            <p className="text-gray-600">
-              Sustainable Development Goals are the key to our collective
-              future. Through developing a fuller understanding of such and
-              providing meaningful insights into each of them respectively, you
-              could be the spark that drives the movement of change.
-            </p>
-          </header>
-        </div>
-      </section>
-      <hr />
-      <section className="mx-auto my-16 flex max-w-6xl p-8">
-        <div className="w-full md:w-1/2">
-          <header className="mb-4">
-            <h2 className="mb-4 text-lg font-semibold text-gray-600 sm:text-xl">
-              Learn & share with a community of <br />
-              <span className="text-2xl text-indigo-500 sm:text-3xl">
-                Like-minded students
-              </span>
-            </h2>
-            <p className="text-gray-600">
-              We, at Apogee Academy, fully believe that collaboration is the key
-              to success; making the world a better place is no less than a team
-              effort. By communicating with like-minded individuals that share
-              the same ideals, working towards these goals will be made easier.
-            </p>
-          </header>
-        </div>
-        <div className="flex-auto"></div>
-      </section>
+      <Logos />
+      <div className="divide-y-2 divide-gray-200">
+        <Speakers />
+        <Goals />
+        <Learn />
+      </div>
       <Footer />
     </>
   );
