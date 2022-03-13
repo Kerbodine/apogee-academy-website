@@ -10,7 +10,7 @@ import LogoWide from "../images/logo-wide.svg";
 
 const links = [
   {
-    href: "/",
+    href: "/home",
     label: "Home",
   },
   {
@@ -41,26 +41,28 @@ export default function CourseNavbar() {
   const router = useRouter();
 
   return (
-    <Disclosure as="nav" className="border-b-2 border-gray-200 bg-white">
+    <Disclosure
+      as="nav"
+      className="sticky top-0 z-20 border-b-2 border-gray-200 bg-white"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 justify-between">
-              <div className="flex">
+              <div className="flex w-full">
                 <div className="flex flex-shrink-0 items-center">
                   <LogoSmall className="block h-8 w-auto lg:hidden" />
                   <LogoWide className="hidden h-8 w-auto lg:block" />
                 </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                <div className="hidden items-center sm:ml-8 sm:flex sm:space-x-2">
                   {links.map((link, index) => (
                     <Link key={index} href={link.href}>
                       <div
                         className={`${
                           router.pathname === link.href
-                            ? "border-indigo-500 text-gray-900"
-                            : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                        } inline-flex cursor-pointer items-center border-b-2 border-indigo-500 px-1 pt-1 font-medium`}
+                            ? "bg-gray-100"
+                            : "hover:border-gray-200"
+                        } inline-flex cursor-pointer items-center rounded-lg border-2 border-transparent px-2 py-1 font-medium`}
                       >
                         {link.label}
                       </div>
@@ -69,7 +71,6 @@ export default function CourseNavbar() {
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                {/* Profile dropdown */}
                 <Menu as="div" className="relative">
                   <div>
                     <Menu.Button
@@ -139,7 +140,6 @@ export default function CourseNavbar() {
                 </Menu>
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
-                {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -151,10 +151,8 @@ export default function CourseNavbar() {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="absolute inset-x-0 top-[66px] border-b-2 border-gray-200 bg-white sm:hidden">
             <div className="space-y-1 pt-2 pb-3">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               {links.map((link, index) => (
                 <Disclosure.Button as="div" key={index}>
                   <Link href={link.href}>
