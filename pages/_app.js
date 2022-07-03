@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { Toaster } from "react-hot-toast";
 import Layout from "../components/Layout";
 import PrivateRoute from "../components/PrivateRoute";
 import PublicRoute from "../components/PublicRoute";
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }) {
         <PrivateRoute>
           <Layout>
             <Component {...pageProps} />
+            <Toaster />
           </Layout>
         </PrivateRoute>
       )}

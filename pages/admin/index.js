@@ -1,9 +1,10 @@
 import { collection, getFirestore, onSnapshot } from "firebase/firestore";
 import Head from "next/head";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { BiLoaderAlt, BiPlus } from "react-icons/bi";
-import AdminCard from "../components/course/AdminCard";
-import Navbar from "../components/Navbar";
+import AdminCard from "../../components/course/AdminCard";
+import Navbar from "../../components/Navbar";
 
 export default function Admin() {
   const [loading, setLoading] = useState(false);
@@ -37,11 +38,17 @@ export default function Admin() {
       ) : (
         <div className="flex h-screen w-full flex-col">
           <Navbar />
-          <div className="mx-auto mt-8 flex w-full max-w-6xl flex-wrap gap-8 pb-32">
-            <AdminCard />
-            <button className="grid h-24 w-24 place-items-center rounded-2xl border-2 border-dashed border-gray-200 text-2xl transition-all hover:border-solid hover:border-gray-300 hover:bg-gray-100">
-              <BiPlus />
-            </button>
+          <div className="mx-auto mt-8 w-full max-w-6xl px-8 pb-32">
+            <div className="flex flex-wrap gap-4">
+              {courses.map((course) => (
+                <AdminCard key={course.url} course={course} />
+              ))}
+            </div>
+            <Link href={"/admin/new-course"}>
+              <button className="mt-4 rounded-lg border-2 border-accent px-3 py-2 font-semibold text-accent transition-colors hover:bg-accent hover:text-white">
+                New course
+              </button>
+            </Link>
           </div>
         </div>
       )}
