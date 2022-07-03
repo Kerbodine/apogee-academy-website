@@ -71,7 +71,7 @@ const Navbar = () => {
                       Log in
                     </div>
                   </Link>
-                  <Link href="/login">
+                  <Link href="/signup">
                     <div
                       className={`${
                         router.pathname === "/signup" && "bg-indigo-500"

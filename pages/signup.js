@@ -35,7 +35,7 @@ export default function Signup() {
     setError("");
     setLoading(true);
     try {
-      await signup(email, password);
+      await signup(email, password, firstName, lastName);
       await updateDisplayName(`${firstName} ${lastName}`);
       setLoading(false);
       router.push("/home");

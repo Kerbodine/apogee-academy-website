@@ -106,6 +106,7 @@ export default function index() {
               <ul typeof="list" className="mt-4">
                 {dummyData.map((item, index) => (
                   <SidebarCard
+                    key={index}
                     len={dummyData.length}
                     title={item.title}
                     index={index}
