@@ -10,7 +10,7 @@ export default function SidebarCard({ len, title, url, index }) {
   return (
     <li>
       <div className="relative pb-6">
-        {index !== len ? (
+        {index !== len - 1 ? (
           <span
             className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"
             aria-hidden="true"

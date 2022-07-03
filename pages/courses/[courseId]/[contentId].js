@@ -58,7 +58,7 @@ export default function Course({ contents, courseData }) {
                   key={content.id}
                   url={content.url}
                   title={content.title}
-                  len={contents.length - 1}
+                  len={contents.length}
                   index={index}
                 />
               ))}
