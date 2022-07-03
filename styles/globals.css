@@ -7,3 +7,12 @@
     --accent: 101, 103, 245;
   }
 }
+
+.three-line {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 3);
+  -webkit-box-orient: vertical;
+  word-break: var(--word-break, 'none');
+  overflow: hidden;
+  hyphens: auto;
+}

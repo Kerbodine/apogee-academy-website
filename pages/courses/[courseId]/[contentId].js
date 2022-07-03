@@ -3,13 +3,45 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import CourseNavbar from "../../../components/CourseNavbar";
 import SidebarCard from "../../../components/course/SidebarCard";
-import SidebarHeader from "../../../components/course/SidebarHeader";
-import { BiBookmark, BiCommentDetail, BiLike } from "react-icons/bi";
+import { BiBookmark, BiCommentDetail, BiCube, BiLike } from "react-icons/bi";
 import { getContent, getCourses, getPaths } from "../../../config/firebase";
 
 export default function Course({ contents, courseData }) {
   const router = useRouter();
   const { courseId, contentId } = router.query;
+
+  const timeline = [
+    {
+      id: 1,
+      content: "Applied to",
+      target: "Front End Developer",
+      date: "Sep 20",
+    },
+    {
+      id: 2,
+      content: "Advanced to phone screening by",
+      target: "Bethany Blake",
+      date: "Sep 22",
+    },
+    {
+      id: 3,
+      content: "Completed phone screening with",
+      target: "Martha Gardner",
+      date: "Sep 28",
+    },
+    {
+      id: 4,
+      content: "Advanced to interview by",
+      target: "Bethany Blake",
+      date: "Sep 30",
+    },
+    {
+      id: 5,
+      content: "Completed interview with",
+      target: "Katherine Snyder",
+      date: "Oct 4",
+    },
+  ];
 
   return (
     <>
@@ -18,22 +50,18 @@ export default function Course({ contents, courseData }) {
       </Head>
       <CourseNavbar />
       <div className="mx-auto flex h-[calc(100vh-66px)] w-full max-w-6xl overflow-hidden">
-        <div className="flex h-full w-80 flex-none flex-col gap-2 overflow-y-auto p-4">
-          {contents.map((content) => (
-            <SidebarCard
-              key={content.id}
-              url={content.url}
-              title={content.title}
-              description={content.subtitle}
-            />
-          ))}
-          {/* <SidebarHeader title="Basics" />
-          <SidebarCard />
-          <SidebarCard />
-          <SidebarHeader title="Worksheet" />
-          <SidebarCard />
-          <SidebarCard />
-          <SidebarCard /> */}
+        <div className="flex h-full w-72 flex-none flex-col gap-2 overflow-y-auto p-4">
+          <ul role="list">
+            {contents.map((content, index) => (
+              <SidebarCard
+                key={content.id}
+                url={content.url}
+                title={content.title}
+                len={contents.length - 1}
+                index={index}
+              />
+            ))}
+          </ul>
         </div>
         <div className="h-full w-full overflow-y-auto border-x-2 border-gray-200">
           <div className="aspect-video w-full border-b-2 border-gray-200 bg-gray-700"></div>
@@ -78,7 +106,6 @@ export default function Course({ contents, courseData }) {
 
 export async function getStaticPaths() {
   const allPaths = await getPaths();
-  console.log(allPaths);
 
   const paths = allPaths[0].contentId.map((contentId) => {
     return {
@@ -88,7 +115,6 @@ export async function getStaticPaths() {
       },
     };
   });
-  console.log(paths);
 
   return {
     paths,

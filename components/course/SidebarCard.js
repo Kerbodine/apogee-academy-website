@@ -1,34 +1,35 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { BiCube } from "react-icons/bi";
 
-export default function SidebarCard({ url, title, description, time }) {
+export default function SidebarCard({ len, title, url, index }) {
   const router = useRouter();
   const { courseId, contentId } = router.query;
 
   return (
-    <Link href={`/courses/${courseId}/${url}`}>
-      <div
-        className={`${
-          contentId === url && "!bg-gray-100"
-        } flex w-full cursor-pointer gap-3 rounded-lg border-2 border-gray-200 p-3 transition-colors hover:bg-gray-100`}
-      >
-        <div>
-          <button className="h-7 w-7 rounded-lg border-2 border-gray-300 transition-colors hover:border-gray-600"></button>
-        </div>
-        <div>
-          <h3 className="text font-semibold">{title}</h3>
-          <p className="leading-5 text-gray-600">{description}</p>
-          <div className="mt-1 flex gap-2">
-            <span className="rounded-md bg-gray-200 px-1.5 py-0.5 text-sm font-semibold">
-              3:15{time}
-            </span>
-            <span className="rounded-md bg-green-300 px-1.5 py-0.5 text-sm font-semibold">
-              Free
-            </span>
+    <li>
+      <div className="relative pb-6">
+        {index !== len ? (
+          <span
+            className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"
+            aria-hidden="true"
+          />
+        ) : null}
+        <Link href={`/courses/${courseId}/${url}`}>
+          <div className="group relative -m-2 flex cursor-pointer items-center space-x-3 rounded-lg p-2 hover:bg-gray-100">
+            <div
+              className={`${
+                contentId === url ? "bg-gray-600" : "bg-gray-400"
+              } flex h-10 w-10 flex-none items-center justify-center rounded-lg`}
+            >
+              <BiCube className="text-2xl text-white" />
+              {/* icon */}
+            </div>
+            <p className="three-line text leading-5 text-gray-500">{title}</p>
           </div>
-        </div>
+        </Link>
       </div>
-    </Link>
+    </li>
   );
 }
