@@ -1,40 +1,47 @@
 import React from "react";
 import { useRouter } from "next/router";
-import CourseNavbar from "../../components/CourseNavbar";
 import Head from "next/head";
-import SidebarCard from "../../components/course/SidebarCard";
-import SidebarHeader from "../../components/course/SidebarHeader";
+import CourseNavbar from "../../../components/CourseNavbar";
+import SidebarCard from "../../../components/course/SidebarCard";
+import SidebarHeader from "../../../components/course/SidebarHeader";
 import { BiBookmark, BiCommentDetail, BiLike } from "react-icons/bi";
+import { getContent, getCourses, getPaths } from "../../../config/firebase";
 
-export default function Course() {
+export default function Course({ contents, courseData }) {
   const router = useRouter();
-  const { id } = router.query;
+  const { courseId, contentId } = router.query;
 
   return (
     <>
       <Head>
-        <title>Courses | Apogee Academy</title>
+        <title>{courseData.title} | Apogee Academy</title>
       </Head>
       <CourseNavbar />
       <div className="mx-auto flex h-[calc(100vh-66px)] w-full max-w-6xl overflow-hidden">
         <div className="flex h-full w-80 flex-none flex-col gap-2 overflow-y-auto p-4">
-          <SidebarHeader title="Basics" />
+          {contents.map((content) => (
+            <SidebarCard
+              key={content.id}
+              url={content.url}
+              title={content.title}
+              description={content.subtitle}
+            />
+          ))}
+          {/* <SidebarHeader title="Basics" />
           <SidebarCard />
           <SidebarCard />
           <SidebarHeader title="Worksheet" />
           <SidebarCard />
           <SidebarCard />
-          <SidebarCard />
+          <SidebarCard /> */}
         </div>
         <div className="h-full w-full overflow-y-auto border-x-2 border-gray-200">
           <div className="aspect-video w-full border-b-2 border-gray-200 bg-gray-700"></div>
           <div className="p-8">
             <h1 className="text-3xl font-bold tracking-tight">
-              1 - Dart in 100 Seconds
+              {courseData.title}
             </h1>
-            <h2 className="text-xl text-gray-600">
-              Learn the fundamentals of Dart in 100 Seconds
-            </h2>
+            <h2 className="text-xl text-gray-600">{courseData.subtitle}</h2>
             <hr className="my-4 border border-dashed" />
             <div className="flex">
               <div className="flex items-center gap-3">
@@ -42,8 +49,10 @@ export default function Course() {
                   J
                 </div>
                 <div>
-                  <p className="-mb-1.5 font-semibold">John Doe</p>
-                  <p className="text-gray-600">Instructor title</p>
+                  <p className="-mb-1.5 font-semibold">
+                    {courseData.author.name}
+                  </p>
+                  <p className="text-gray-600">{courseData.author.title}</p>
                 </div>
               </div>
               <div className="ml-auto flex items-center gap-3">
@@ -59,22 +68,40 @@ export default function Course() {
               </div>
             </div>
             <hr className="my-4 border border-dashed" />
-            <p className="pb-16 text-gray-600">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
-              officia exercitationem fugit eligendi modi consequatur. Autem
-              temporibus rem ullam exercitationem non? Est qui sunt eveniet,
-              tempora voluptates perspiciatis laboriosam molestias consequatur,
-              earum perferendis dolorem ipsa possimus at saepe fugiat? Voluptas,
-              at sint eos dolorem eius laborum dignissimos fugit aspernatur
-              doloribus possimus quidem id praesentium molestiae. Eius quod ipsa
-              similique aliquid laudantium nostrum officia tempora quos,
-              cupiditate, accusantium eligendi facilis quidem corporis
-              voluptatum facere doloribus magni harum in totam exercitationem
-              id.
-            </p>
+            <p className="pb-16 text-gray-600">{courseData.description}</p>
           </div>
         </div>
       </div>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  const allPaths = await getPaths();
+  console.log(allPaths);
+
+  const paths = allPaths[0].contentId.map((contentId) => {
+    return {
+      params: {
+        courseId: allPaths[0].courseId,
+        contentId: contentId,
+      },
+    };
+  });
+  console.log(paths);
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { courseId, contentId } }) {
+  const contents = await getCourses(courseId);
+
+  const courseData = await getContent(courseId, contentId);
+
+  return {
+    props: { contents, courseData },
+  };
 }

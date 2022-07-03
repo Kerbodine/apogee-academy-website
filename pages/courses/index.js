@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import CourseNavbar from "../components/CourseNavbar";
-import { goals } from "../config/goals";
+import CourseNavbar from "../../components/CourseNavbar";
+import { goals } from "../../config/goals";
 
 export default function Courses() {
   const [courseSearch, setCourseSearch] = useState("");
