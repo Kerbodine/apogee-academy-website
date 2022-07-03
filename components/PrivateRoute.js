@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function PrivateRoute({ children }) {
-  const { user, username } = useAuth();
+  const { user, username, userData } = useAuth();
   const router = useRouter();
   const pathname = router.pathname;
 
@@ -12,6 +12,12 @@ export default function PrivateRoute({ children }) {
       router.push("/login");
     } else if (!username && pathname !== "/username") {
       router.push("/username");
+    }
+    if (pathname === "/admin") {
+      const isAdmin = userData.roles.includes("admin");
+      if (!isAdmin) {
+        router.push("/home");
+      }
     }
   }, [router, user]);
 
