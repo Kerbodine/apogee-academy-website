@@ -48,55 +48,57 @@ export default function Course({ contents, courseData }) {
       <Head>
         <title>{courseData.title} | Apogee Academy</title>
       </Head>
-      <CourseNavbar />
-      <div className="mx-auto flex h-[calc(100vh-66px)] w-full max-w-6xl overflow-hidden">
-        <div className="flex h-full w-72 flex-none flex-col gap-2 overflow-y-auto p-4">
-          <ul role="list">
-            {contents.map((content, index) => (
-              <SidebarCard
-                key={content.id}
-                url={content.url}
-                title={content.title}
-                len={contents.length - 1}
-                index={index}
-              />
-            ))}
-          </ul>
-        </div>
-        <div className="h-full w-full overflow-y-auto border-x-2 border-gray-200">
-          <div className="aspect-video w-full border-b-2 border-gray-200 bg-gray-700"></div>
-          <div className="p-8">
-            <h1 className="text-3xl font-bold tracking-tight">
-              {courseData.title}
-            </h1>
-            <h2 className="text-xl text-gray-600">{courseData.subtitle}</h2>
-            <hr className="my-4 border border-dashed" />
-            <div className="flex">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-gray-200 text-xl font-bold">
-                  J
+      <div className="flex h-screen w-full flex-col">
+        <CourseNavbar />
+        <div className="mx-auto flex h-full w-full max-w-6xl overflow-hidden">
+          <div className="flex h-full w-72 flex-none flex-col gap-2 overflow-y-auto p-4">
+            <ul role="list">
+              {contents.map((content, index) => (
+                <SidebarCard
+                  key={content.id}
+                  url={content.url}
+                  title={content.title}
+                  len={contents.length - 1}
+                  index={index}
+                />
+              ))}
+            </ul>
+          </div>
+          <div className="h-full w-full overflow-y-auto border-x-2 border-gray-200">
+            <div className="aspect-video w-full border-b-2 border-gray-200 bg-gray-700"></div>
+            <div className="p-8">
+              <h1 className="text-3xl font-bold tracking-tight">
+                {courseData.title}
+              </h1>
+              <h2 className="text-xl text-gray-600">{courseData.subtitle}</h2>
+              <hr className="my-4 border border-dashed" />
+              <div className="flex">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-full bg-gray-200 text-xl font-bold">
+                    J
+                  </div>
+                  <div>
+                    <p className="-mb-1.5 font-semibold">
+                      {courseData.author.name}
+                    </p>
+                    <p className="text-gray-600">{courseData.author.title}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="-mb-1.5 font-semibold">
-                    {courseData.author.name}
-                  </p>
-                  <p className="text-gray-600">{courseData.author.title}</p>
+                <div className="ml-auto flex items-center gap-3">
+                  <button className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-gray-200 text-2xl text-gray-600 transition-colors hover:bg-gray-200">
+                    <BiLike />
+                  </button>
+                  <button className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-gray-200 text-2xl text-gray-600 transition-colors hover:bg-gray-200">
+                    <BiBookmark />
+                  </button>
+                  <button className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-gray-200 text-2xl text-gray-600 transition-colors hover:bg-gray-200">
+                    <BiCommentDetail />
+                  </button>
                 </div>
               </div>
-              <div className="ml-auto flex items-center gap-3">
-                <button className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-gray-200 text-2xl text-gray-600 transition-colors hover:bg-gray-200">
-                  <BiLike />
-                </button>
-                <button className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-gray-200 text-2xl text-gray-600 transition-colors hover:bg-gray-200">
-                  <BiBookmark />
-                </button>
-                <button className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-gray-200 text-2xl text-gray-600 transition-colors hover:bg-gray-200">
-                  <BiCommentDetail />
-                </button>
-              </div>
+              <hr className="my-4 border border-dashed" />
+              <p className="pb-16 text-gray-600">{courseData.description}</p>
             </div>
-            <hr className="my-4 border border-dashed" />
-            <p className="pb-16 text-gray-600">{courseData.description}</p>
           </div>
         </div>
       </div>

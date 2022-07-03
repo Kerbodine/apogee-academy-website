@@ -10,12 +10,12 @@ module.exports = {
     extend: {
       colors: {
         main: colors.zinc,
-        // accent: ({ opacityValue }) => {
-        //   if (opacityValue !== undefined) {
-        //     return `rgba(var(--accent), ${opacityValue})`;
-        //   }
-        //   return `rgb(var(--accent)`;
-        // },
+        accent: ({ opacityValue }) => {
+          if (opacityValue !== undefined) {
+            return `rgba(var(--accent), ${opacityValue})`;
+          }
+          return `rgb(var(--accent)`;
+        },
       },
       screens: {
         xs: "480px",
