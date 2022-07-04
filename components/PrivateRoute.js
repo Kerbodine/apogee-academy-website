@@ -13,12 +13,6 @@ export default function PrivateRoute({ children }) {
     } else if (!username && pathname !== "/username") {
       router.push("/username");
     }
-    if (pathname === "/admin") {
-      const isAdmin = userData.roles.includes("admin");
-      if (!isAdmin) {
-        router.push("/home");
-      }
-    }
   }, [router, user]);
 
   return <>{user && children}</>;

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { BiLoaderAlt, BiPlus } from "react-icons/bi";
 import Tag from "../../components/course/Tag";
-import Navbar from "../../components/Navbar";
 import { nanoid } from "nanoid";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
+import AdminRoute from "../../components/AdminRoute";
+import CourseNavbar from "../../components/CourseNavbar";
 
 export default function NewCourse() {
   const router = useRouter();
@@ -44,7 +45,6 @@ export default function NewCourse() {
         resources: 0,
         lastUpdated: new Date(),
       };
-      // add course as new document in Courses collection
       await setDoc(doc(getFirestore(), "Courses", nanoid()), course);
       setLoading(false);
       toast.success("Course added successfully!");
@@ -56,7 +56,7 @@ export default function NewCourse() {
   };
 
   return (
-    <>
+    <AdminRoute>
       {loading ? (
         <div className="grid h-screen w-full place-items-center">
           <span className="animate-spin text-2xl text-gray-500">
@@ -65,7 +65,7 @@ export default function NewCourse() {
         </div>
       ) : (
         <div className="flex h-screen w-full flex-col">
-          <Navbar />
+          <CourseNavbar />
           <div className="mx-auto mt-8 w-full max-w-6xl px-8 pb-32">
             <h1 className="text-2xl font-bold">Create A New Course:</h1>
             <div className="flex w-full">
@@ -136,7 +136,7 @@ export default function NewCourse() {
                 )}
                 <button
                   type="submit"
-                  className="rounded-lg border-2 border-accent px-3 py-2 font-semibold text-accent hover:bg-accent hover:text-white"
+                  className="rounded-lg border-2 border-accent px-3 py-2 font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
                 >
                   Add Course
                 </button>
@@ -146,6 +146,6 @@ export default function NewCourse() {
           </div>
         </div>
       )}
-    </>
+    </AdminRoute>
   );
 }

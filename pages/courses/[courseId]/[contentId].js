@@ -109,14 +109,18 @@ export default function Course({ contents, courseData }) {
 export async function getStaticPaths() {
   const allPaths = await getPaths();
 
-  const paths = allPaths[0].contentId.map((contentId) => {
-    return {
-      params: {
-        courseId: allPaths[0].courseId,
-        contentId: contentId,
-      },
-    };
-  });
+  const paths = allPaths
+    .map((course) => {
+      return course.contentId.map((content) => {
+        return {
+          params: {
+            courseId: course.courseId.toString(),
+            contentId: content.toString(),
+          },
+        };
+      });
+    })
+    .filter((course) => course.length > 0)[0];
 
   return {
     paths,

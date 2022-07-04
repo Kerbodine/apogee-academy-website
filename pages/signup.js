@@ -38,10 +38,9 @@ export default function Signup() {
       await signup(email, password, firstName, lastName);
       await updateDisplayName(`${firstName} ${lastName}`);
       setLoading(false);
-      router.push("/home");
+      router.push("/username");
     } catch (err) {
       setLoading(false);
-      console.log(err);
       switch (err.code) {
         case "auth/email-already-in-use":
           setError("Email already in use");

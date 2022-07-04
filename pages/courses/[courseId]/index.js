@@ -41,7 +41,7 @@ export default function index() {
       </Head>
       <div className="flex h-screen w-full flex-col">
         <CourseNavbar />
-        <div className="mx-auto mt-8 h-full w-full max-w-6xl pb-32">
+        <div className="mx-auto mt-8 h-full w-full max-w-6xl px-8 pb-32">
           <div className="relative flex h-72 w-full rounded-2xl bg-gray-900 p-8">
             <div className="absolute h-auto w-[320px] space-y-2 rounded-2xl border-2 border-gray-200 bg-white p-2 shadow-lg">
               <div className="aspect-video w-full rounded-lg bg-gray-500"></div>
@@ -103,7 +103,7 @@ export default function index() {
           <div className="ml-[352px] w-auto p-4 pr-8">
             <div className="w-full rounded-lg border-2 border-gray-200 p-4">
               <h2 className="text-xl font-semibold">Course content:</h2>
-              <ul typeof="list" className="mt-4">
+              <ul typeof="list" className="mt-4 -mb-6">
                 {dummyData.map((item, index) => (
                   <SidebarCard
                     key={index}

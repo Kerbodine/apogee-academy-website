@@ -52,7 +52,6 @@ export const AuthProvider = ({ children }) => {
         setUserData(document.data());
         setUsername(document.data()?.username);
         setLoading(false);
-        console.log(username);
       });
     }
     return () => {
